@@ -12,7 +12,7 @@ def get_factors(num_digits):
     """Compute all positive factors of 'num_digits' excluding the number itself"""
 
     factors = []
-    limit = isqrt(num_digits)  # us isqrt to avoid floats
+    limit = isqrt(num_digits)  # use isqrt to avoid floats
 
     # Check each integer from 1 to sqrt(number)
     for idx in range(1, limit + 1):
