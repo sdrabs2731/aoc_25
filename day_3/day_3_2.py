@@ -24,7 +24,7 @@ def compute_solution(data: List[str], keep: int) -> int:
 
         for digit in line:
             # Remove smaller digits from stack if to_remove > 0
-            while to_remove and stack and stack[-1] < digit:
+            while stack and stack[-1] < digit and to_remove > 0:
                 stack.pop()
                 to_remove -= 1
             stack.append(digit)  # Push the current digit onto the stack
