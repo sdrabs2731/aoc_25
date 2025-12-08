@@ -1,6 +1,6 @@
 """AOC 2025 - Day 3, Part 1"""
 
-def read_input(file_path: str) -> str:
+def read_input(file_path: str) -> list:
     """Reads the input file and returns the content as a string."""
 
     data = []
@@ -14,16 +14,15 @@ def compute_solution(data: str) -> int:
     """Computes the solution for Day 3, Part 1."""
     maximums = []
     maximums_two = []
-    for line in data:
-       
 
+    for line in data:
         maximum = ''
         max2 = ''
         for idx, char in enumerate(line):
             if char > maximum and idx != len(line) - 1:
                 maximum = char
                 loc_one = idx
-        
+
         for idx, char in enumerate(line[loc_one + 1:]):
             if char > max2:
                 max2 = char
@@ -32,7 +31,7 @@ def compute_solution(data: str) -> int:
 
         maximums.append((maximum, loc_one))
         maximums_two.append((max2, loc_two))
-    
+
     print(maximums)
     print(maximums_two)
 
@@ -43,7 +42,7 @@ def compute_solution(data: str) -> int:
 
     for item in zipped:
         first_max, second_max = item
-        solution += int((first_max[0]) + (second_max[0])) 
+        solution += int((first_max[0]) + (second_max[0]))
     return solution
 
 
@@ -54,6 +53,6 @@ def main():
     print(input_data)
     solution = compute_solution(input_data)
     print(f"Solution Day 3, Part 1: {solution}")
-    
+
 if __name__ == "__main__":
     main()
