@@ -16,7 +16,7 @@ def calculate_area(point_one, point_two) -> int:
 
     length: int = abs(point_one[0] - point_two[0]) + 1
     height: int = abs(point_one[1] - point_two[1]) + 1
-  
+
     return length * height
 
 
@@ -24,11 +24,10 @@ def process_data(data) -> int:
     """Process all point and return largest area"""
 
     max_area: int = 0
-    for i in range(len(data)):
+    for i, item in enumerate(data):
         for j in range(i + 1, len(data)):
-            area = calculate_area(data[i], data[j])
-            if area > max_area:
-                max_area = area
+            area = calculate_area(item, data[j])
+            max_area = max(max_area, area)
 
     return max_area
 
@@ -38,7 +37,7 @@ def main() -> None:
 
     data = read_input("data_9.txt")
     solution = process_data(data)
-    print(f"Solution: {solution}")    
+    print(f"Solution: {solution}")
 
 
 if __name__ == "__main__":
